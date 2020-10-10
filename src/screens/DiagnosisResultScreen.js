@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image } from 'react-native' 
+import { View, StyleSheet, Text, Button } from 'react-native' 
 import CircleButton from '../elements/CircleButton';
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -9,12 +9,13 @@ class DiagnosisResultScreen extends React.Component{
     return(
       <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
         <View style={styles.textContainer}>
-          <Text style={styles.topText} >あなたにぴったりな</Text>
-          <Text style={styles.rowText} >お米を診断します！</Text>
+          <Text style={styles.topText} >診断結果</Text>
+          <Text style={styles.rowText} >あなたにぴったりな</Text>
+          <Text style={styles.rowText} >お米はこれです！</Text>
         </View>
-        <Icon style={styles.riceIcon} name="rice" color="#F8C758" />
+        {/* <Icon style={styles.riceIcon} name="rice" color="#F8C758" /> */}
         <CircleButton style={styles.button} onPress={() => {}}/>
-          <Text style={styles.buttonText}>診断を開始する！</Text>
+        <Text style={styles.buttonText}>もう一度診断する！</Text>
       </View>
     );
   }
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: 80,
+    top: 60,
     width: 300,
     height: 170,
     backgroundColor: '#FFC776',
@@ -36,7 +37,8 @@ const styles = StyleSheet.create({
     borderRadius: 45,
   },
   topText: {
-    marginTop: 52,
+    marginTop: 30,
+    marginBottom: 20,
     fontSize: 24,
     alignSelf: 'center',
     color: '#fff',
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
   },
   rowText: {
     marginTop: 10,
-    fontSize: 24,
+    fontSize: 20,
     alignSelf: 'center',
     color: '#fff',
     fontWeight: 'bold',
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
     height: 60,
     alignSelf: 'center',
     position: 'absolute',
-    bottom: 190,
+    bottom: 70,
     borderRadius: 24,
     shadowColor:'#000',
     shadowOffset: {width:0,height:3},
@@ -71,7 +73,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     position: 'absolute',
-    bottom: 210,
+    bottom: 90,
     alignSelf: 'center',
     fontSize: 22,
     color: '#fff',
