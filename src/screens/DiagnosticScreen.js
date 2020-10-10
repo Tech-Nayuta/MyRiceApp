@@ -13,8 +13,9 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 // 
 
 
+// let questions = ["10日のお昼ご飯は？","11日のお昼ご飯は？","12日のお昼ご飯は？","13日のお昼ご飯は？","14日のお昼ご飯は？"];
+let questions = ["下の３つから項目を選んでください","好きな固さはどれくらい？","粘りの強さはどれくらい？"]
 
-let questions = ["10日のお昼ご飯は？","11日のお昼ご飯は？","12日のお昼ご飯は？","13日のお昼ご飯は？","14日のお昼ご飯は？"];
 
 class DiagnosticScreen extends React.Component{
 
@@ -27,6 +28,19 @@ class DiagnosticScreen extends React.Component{
       // console.log(params.selections);
       // console.log(this.state.anwerSelections); 
     }
+
+    // fetch(`https://webapi.aitalk.jp/webapi/v2/ttsget.php/BODY?username=spajam2020&password=Jh7pLYfp&speaker_name=nozomi&text=${questions[this.state.questionId]}`)
+    //   .then((response) => console.log(response))
+    //   // .then((jsonData) => {
+    //   //   this.setState({ loading: false })
+    //   //   if (jsonData['api_token']) {
+    //   //     this.props.navigation.navigate('main')
+    //   //   }
+    //   //   else {
+    //   //     this.setState({ failed: true })
+    //   //   }
+    //   // })
+    //   .catch((error) => console.error(error));
   }
   
   state = {
@@ -45,30 +59,37 @@ class DiagnosticScreen extends React.Component{
     if(this.state.isPushed == true){return}
     this.state.selections.push(selection);
     const selections = this.state.selections;
-
     const nextQuestionId = this.state.questionId + 1;
     
     this.setState({isPushed: true});
+
     if(nextQuestionId > questions.length - 1){
       console.log(selections);
       //rails リクエスト処理を行う
 
-
       // (((rails--------------------------------------------------------------------------------------
-      // fetch(`https://zone-web.herokuapp.com/api/login.json?selections=${this.state.selections}`)
-      //   .then((response) => response.json())
-      //   .then((jsonData) => {
-      //     this.setState({ loading: false })
-      //     if (jsonData['api_token']) {
-      //       this.props.navigation.navigate('main')
-      //     }
-      //     else {
-      //       this.setState({ failed: true })
-      //     }
-      //   })
-      //   .catch((error) => console.error(error));
+      return fetch('https://whispering-coast-00606.herokuapp.com/')
+        .then((response) => {
+          return response.json();
+        })
+        .then((jsonData) => {
+          rices = [];
+          // jsonData.forEach((rice)=>{
+          //   console.log(rice);
+          // })
+
+          this.props.navigation.navigate('Result',{results: jsonData});
+          // this.setState({ loading: false })
+          // if (jsonData['api_token']) {
+          //   this.props.navigation.navigate('main')
+          // }
+          // else {
+          //   this.setState({ failed: true })
+          // }
+        })
+        // .catch((error) => console.error(error));
       
-      this.props.navigation.navigate('ok',{});
+      // this.props.navigation.navigate('ok',{});
     }
     else{
       this.props.navigation.push('Diagnostic', {

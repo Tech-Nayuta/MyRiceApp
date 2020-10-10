@@ -1,22 +1,41 @@
 import React from 'react'
-import { View, StyleSheet, Text, Button } from 'react-native' 
+import { ScrollView ,View, StyleSheet, Text, Button } from 'react-native' 
 import CircleButton from '../elements/CircleButton';
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import ResultList from '../components/ResultList';
+
 
 class DiagnosisResultScreen extends React.Component{
+
+  componentDidMount(){
+    // const {params} = this.props.navigation.state;
+    // if(params != null){
+    //   params.results.forEach((rice) => {
+    //     console.log(rice);
+
+    //   });
+    // }
+  }
+  
   render(){
+    const {params} = this.props.navigation.state;
     return(
-      <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
+      <ScrollView style={styles.container} behavior="height" keyboardVerticalOffset="50" >
         <View style={styles.textContainer}>
           <Text style={styles.topText} >診断結果</Text>
           <Text style={styles.rowText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米はこれです！</Text>
         </View>
+        <ResultList resultList={params.results}/>
+        <View>
+          <Text></Text>
+        </View>
+
         {/* <Icon style={styles.riceIcon} name="rice" color="#F8C758" /> */}
         <CircleButton style={styles.button} onPress={() => {}}/>
         <Text style={styles.buttonText}>もう一度診断する！</Text>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -84,7 +103,6 @@ const styles = StyleSheet.create({
     height: 100,
     position: 'absolute',
     bottom: 32,
-
     alignSelf: 'center',
   },
 });
