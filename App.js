@@ -15,28 +15,15 @@ import firebase from 'firebase';
 
 require("firebase/firestore");
 
-import ENV from './env.json'
 import MemoCreateScreen from './src/screens/MemoCreateScreen';
 
-const firebaseConfig = {
-  apiKey: ENV.FIREBASE_API_KEY,
-  authDomain: ENV.FIREBASE_AUTH_DOMAIN,
-  databaseURL: ENV.FIREBASE_DB_URL,
-  projectId: ENV.FIREBASE_PRJ_ID,
-  storageBucket:  ENV.FIREBASE_STORAGE,
-  messagingSenderId: ENV.FIREBASE_SENDER_ID,
-  appId: ENV.FIREBASE_APP_ID,
-  measurementId: ENV.FIREBASE_MEASURE_ID,
-};
+import DiagnosisResultScreen from './src/screens/DiagnosisResultScreen';
 
-if(firebase.apps.length == 0){ //initializeAppが複数回呼ばれるとエラーに
-  firebase.initializeApp(firebaseConfig);
-}
+
 
 const App = createStackNavigator({
-  Login:      { screen: LoginScreen },
+  Result: { screen: DiagnosisResultScreen },
   MemoCreate: { screen: MemoCreateScreen},
-  Signup:     { screen: SignupScreen },
   Home:       { screen: MemoListScreen },
   MemoDetail: { screen: MemoDetailScreen },
   MemoEdit:   { screen: MemoEditScreen },
