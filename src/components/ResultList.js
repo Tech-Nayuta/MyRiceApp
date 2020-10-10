@@ -1,26 +1,28 @@
 import React from 'react'
-import {StyleSheet, View, Text, FlatList} from 'react-native';
+import {StyleSheet, View, Text, Image, FlatList} from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 class ResultList extends React.Component{
 
   renderRice(riceData){ 
 
-    console.log("riceData\n" + riceData);
+    console.log("riceData\n" + riceData.url);
+    
+
     return(
        <View style={styles.riceContents}>
-         <Text style={styles.riceName}>{riceData.id}</Text>
+         <Text style={styles.riceName}>{riceData.name}</Text>
+         <Image style={styles.image} source={{ url: riceData.url }}/>
           {/* <Text style={styles.memoDate}>{dateString(item.createdOn)}</Text> */}
        </View>
     )
   }
 
   render(){
-    console.log(this.props.resultList);
+    // console.log(this.props.resultList);
 
     const list = [];
     this.props.resultList.forEach((riceData) => {
-      console.log("riceData" + riceData);
       list.push(this.renderRice(riceData));
     }); 
 
@@ -45,18 +47,25 @@ const styles = StyleSheet.create({
     // backgroundColor: '#eee',
     width: '100%',
     flex:1,
-    marginTop: 60,
-    marginBottom: 60,
+    marginTop: 100,
+    marginBottom: 30,
   },
   riceContents:{
     // height: 40,
     padding: 16,
   },
   riceName:{
-    fontSize: 25,
-    marginLeft: 40,
-    // alignSelf: 'center',
+    fontSize: 20,
+    // marginLeft: 40,
+    alignSelf: 'center',
     fontWeight: 'bold',
+  },
+  image:{
+    marginTop: 20,
+    alignSelf: 'center',
+    height: 200,
+    width: 200,
+    marginBottom: 30,
   }
 });
 
