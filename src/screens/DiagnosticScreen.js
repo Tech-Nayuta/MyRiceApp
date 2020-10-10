@@ -91,6 +91,7 @@ class DiagnosticScreen extends React.Component{
       // this.props.navigation.navigate('ok',{});
     }
     else{
+      console.log("ok");
       this.props.navigation.push('Diagnostic', {
         questionId: nextQuestionId,
         selections: selections,
@@ -102,18 +103,18 @@ class DiagnosticScreen extends React.Component{
     // const {memo} = this.state;
     // if(Object.keys(memo).length == 0){return null
 
-   fetch(`http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=spajam2020&password=Jh7pLYfp&speaker_name=nozomi&text=${questions[this.state.questionId]}`)
-        .then((response) => console.log(response))
-        // .then((jsonData) => {
-        //   this.setState({ loading: false })
-        //   if (jsonData['api_token']) {
-        //     this.props.navigation.navigate('main')
-        //   }
-        //   else {
-        //     this.setState({ failed: true })
-        //   }
-        // })
-        .catch((error) => console.error(error));
+  //  fetch(`http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=spajam2020&password=Jh7pLYfp&speaker_name=nozomi&text=${questions[this.state.questionId]}`)
+  //       .then((response) => console.log(response))
+  //       // .then((jsonData) => {
+  //       //   this.setState({ loading: false })
+  //       //   if (jsonData['api_token']) {
+  //       //     this.props.navigation.navigate('main')
+  //       //   }
+  //       //   else {
+  //       //     this.setState({ failed: true })
+  //       //   }
+  //       // })
+  //       .catch((error) => console.error(error));
 
     switch(this.state.questionId){
       case 0:

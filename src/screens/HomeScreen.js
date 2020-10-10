@@ -8,7 +8,7 @@ const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 class MemoCreateScreen extends React.Component{
 
   handlePress(){
-    this.props.navigation.navigate('Dignostic');
+    this.props.navigation.navigate('Diagnostic');
   }
 
 
