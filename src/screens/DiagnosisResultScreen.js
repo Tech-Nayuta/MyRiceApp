@@ -1,28 +1,41 @@
 import React from 'react'
-import { View, StyleSheet, Text, TouchableHighlight } from 'react-native' 
+
+import { View, StyleSheet, Text, ScrollView, TouchableHighlight } from 'react-native' 
 import CircleButton from '../elements/CircleButton';
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import ResultList from '../components/ResultList';
+
 
 class DiagnosisResultScreen extends React.Component{
+
 
   handlePress(){
     this.props.navigation.navigate('Home');
   }
 
+
   render(){
+    const {params} = this.props.navigation.state;
     return(
-      <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
+      <ScrollView style={styles.container} behavior="height" keyboardVerticalOffset="50" >
         <View style={styles.textContainer}>
           <Text style={styles.topText} >診断結果</Text>
           <Text style={styles.rowText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米はこれです！</Text>
         </View>
+      
+        <ResultList resultList={params.results}/>
+        <View>
+          <Text></Text>
+        </View>
+
+  
         <TouchableHighlight onPress={this.handlePress.bind(this)} style={styles.button} underlayColor="transparent">
             <Text style={styles.buttonText}>もう一度診断する！</Text>
         </TouchableHighlight>
 
-      </View>
+      </ScrollView>
     );
   }
 }

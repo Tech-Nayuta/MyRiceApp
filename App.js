@@ -1,3 +1,4 @@
+
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
@@ -9,7 +10,6 @@ const App = createStackNavigator({
   Home:      { screen: HomeScreen },
   Dignostic: { screen: DiagnosticScreen },
   Result:    { screen: DiagnosisResultScreen },  
-
 }, {
   defaultNavigationOptions: {
     headerBackTitle: "",
@@ -25,4 +25,3 @@ const App = createStackNavigator({
 });
  
 export default createAppContainer(App);
-
