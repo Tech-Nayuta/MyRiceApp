@@ -17,8 +17,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 let questions = ["10日のお昼ご飯は？","11日のお昼ご飯は？","12日のお昼ご飯は？","13日のお昼ご飯は？","14日のお昼ご飯は？"];
 
 class DiagnosticScreen extends React.Component{
-
-  
   async componentDidMount(){
     const {params} = this.props.navigation.state;
     if(params != null){
@@ -34,8 +32,6 @@ class DiagnosticScreen extends React.Component{
     selections: [],
     isPushed: false,
   }
-
-
 
   // returnMemo(memo){
   //   this.setState({memo})
