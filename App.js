@@ -8,7 +8,7 @@ import DiagnosisResultScreen from './src/screens/DiagnosisResultScreen';
 
 const App = createStackNavigator({
   Home:      { screen: HomeScreen },
-  Dignostic: { screen: DiagnosticScreen },
+  Diagnostic: { screen: DiagnosticScreen },
   Result:    { screen: DiagnosisResultScreen },  
 }, {
   defaultNavigationOptions: {

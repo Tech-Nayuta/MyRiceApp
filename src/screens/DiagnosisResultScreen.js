@@ -26,15 +26,10 @@ class DiagnosisResultScreen extends React.Component{
         </View>
       
         <ResultList resultList={params.results}/>
-        <View>
-          <Text></Text>
-        </View>
-
   
         <TouchableHighlight onPress={this.handlePress.bind(this)} style={styles.button} underlayColor="transparent">
             <Text style={styles.buttonText}>もう一度診断する！</Text>
         </TouchableHighlight>
-
       </ScrollView>
     );
   }
@@ -53,7 +48,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFC776',
     alignSelf: 'center',
     borderRadius: 30,
-    marginBottom: 420,
   },
   topText: {
     marginTop: 20,
