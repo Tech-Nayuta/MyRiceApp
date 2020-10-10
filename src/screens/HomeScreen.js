@@ -13,7 +13,8 @@ class MemoCreateScreen extends React.Component{
           <Text style={styles.rowText} >お米を診断します！</Text>
         </View>
         <Icon style={styles.riceIcon} name="rice" color="#F8C758" />
-        <CircleButton style={styles.button}　onPress={() => {}}/>
+        <CircleButton style={styles.button} onPress={() => {}}/>
+          <Text style={styles.buttonText}>診断を開始する！</Text>
         <Image style={styles.riceList}source={require('../../assets/rice_list.jpg')} />
       </View>
     );
@@ -62,12 +63,20 @@ const styles = StyleSheet.create({
     height: 60,
     alignSelf: 'center',
     position: 'absolute',
-    bottom: 200,
+    bottom: 190,
     borderRadius: 24,
     shadowColor:'#000',
     shadowOffset: {width:0,height:3},
     shadowOpacity: 0.3,
     shadowRadius: 3,
+  },
+  buttonText: {
+    position: 'absolute',
+    bottom: 210,
+    alignSelf: 'center',
+    fontSize: 22,
+    color: '#fff',
+    fontWeight: 'bold',
   },
   riceList: {
     width: 350,
