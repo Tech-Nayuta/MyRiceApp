@@ -16,7 +16,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 let questions = ["10日のお昼ご飯は？","11日のお昼ご飯は？","12日のお昼ご飯は？","13日のお昼ご飯は？","14日のお昼ご飯は？"];
 
-
 class DiagnosticScreen extends React.Component{
 
   
@@ -24,16 +23,18 @@ class DiagnosticScreen extends React.Component{
     const {params} = this.props.navigation.state;
     if(params != null){
       await this.setState({questionId: params.questionId});
-      await this.setState({answerSelections: params.answerSelections});
-      // console.log(params.answerSelections);
+      await this.setState({selections: params.selections});
+      // console.log(params.selections);
       // console.log(this.state.anwerSelections); 
     }
   }
   
   state = {
     questionId: 0,
-    answerSelections: [],
+    selections: [],
+    isPushed: false,
   }
+
 
 
   // returnMemo(memo){
@@ -41,19 +42,38 @@ class DiagnosticScreen extends React.Component{
   // }
 
   handleSubmit(selection){
-    this.state.answerSelections.push(selection);
-    const answerSelections = this.state.answerSelections;
+    if(this.state.isPushed == true){return}
+    this.state.selections.push(selection);
+    const selections = this.state.selections;
 
     const nextQuestionId = this.state.questionId + 1;
+    
+    this.setState({isPushed: true});
     if(nextQuestionId > questions.length - 1){
-      console.log(answerSelections);
+      console.log(selections);
       //rails リクエスト処理を行う
-      this.props.navigation.navigate('ok');
+
+
+      // (((rails--------------------------------------------------------------------------------------
+      // fetch(`https://zone-web.herokuapp.com/api/login.json?selections=${this.state.selections}`)
+      //   .then((response) => response.json())
+      //   .then((jsonData) => {
+      //     this.setState({ loading: false })
+      //     if (jsonData['api_token']) {
+      //       this.props.navigation.navigate('main')
+      //     }
+      //     else {
+      //       this.setState({ failed: true })
+      //     }
+      //   })
+      //   .catch((error) => console.error(error));
+      
+      this.props.navigation.navigate('ok',{});
     }
     else{
       this.props.navigation.push('Diagnostic', {
         questionId: nextQuestionId,
-        answerSelections: answerSelections,
+        selections: selections,
       })
     }
   }
