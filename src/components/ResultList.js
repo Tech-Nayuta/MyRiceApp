@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flex:1,
     marginTop: 60,
+    marginBottom: 60,
   },
   riceContents:{
     // height: 40,
