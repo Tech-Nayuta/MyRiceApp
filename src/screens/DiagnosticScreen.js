@@ -16,7 +16,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 // let questions = ["10日のお昼ご飯は？","11日のお昼ご飯は？","12日のお昼ご飯は？","13日のお昼ご飯は？","14日のお昼ご飯は？"];
 let questions = ["下の３つから項目を選んでください","好きな固さはどれくらい？","粘りの強さはどれくらい？"]
 
-
 class DiagnosticScreen extends React.Component{
 
   
@@ -103,6 +102,19 @@ class DiagnosticScreen extends React.Component{
     // const {memo} = this.state;
     // if(Object.keys(memo).length == 0){return null
 
+   fetch(`http://webapi.aitalk.jp/webapi/v2/ttsget.php?username=spajam2020&password=Jh7pLYfp&speaker_name=nozomi&text=${questions[this.state.questionId]}`)
+        .then((response) => console.log(response))
+        // .then((jsonData) => {
+        //   this.setState({ loading: false })
+        //   if (jsonData['api_token']) {
+        //     this.props.navigation.navigate('main')
+        //   }
+        //   else {
+        //     this.setState({ failed: true })
+        //   }
+        // })
+        .catch((error) => console.error(error));
+
     switch(this.state.questionId){
       case 0:
         return(
@@ -116,7 +128,6 @@ class DiagnosticScreen extends React.Component{
               <CircleButton name="pencil" style={styles.submitButton1} color="white" onPress={this.handleSubmit.bind(this,1)}/>
               <CircleButton name="pencil" style={styles.submitButton2} color="white" onPress={this.handleSubmit.bind(this,2)}/>
               <CircleButton name="pencil" style={styles.submitButton3} color="white" onPress={this.handleSubmit.bind(this,3)}/>
-              <CircleButton name="pencil" style={styles.submitButton4} color="white" onPress={this.handleSubmit.bind(this,4)}/>
               {/* <CircleButton name="pencil" style={styles.submitButton5} color="white" onPress={() => {}}/> */}
             </View>
               {/* <Image style={styles.tinyLogo} source={require()} /> */}
