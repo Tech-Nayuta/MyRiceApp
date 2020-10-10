@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image } from 'react-native' 
+import { View, StyleSheet, Text, Image, TouchableHighlight } from 'react-native' 
 import CircleButton from '../elements/CircleButton';
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -12,10 +12,11 @@ class MemoCreateScreen extends React.Component{
           <Text style={styles.topText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米を診断します！</Text>
         </View>
-        <Icon style={styles.riceIcon} name="rice" color="#F8C758" />
-        <CircleButton style={styles.button} onPress={() => {}}/>
-          <Text style={styles.buttonText}>診断を開始する！</Text>
-        <Image style={styles.riceList}source={require('../../assets/rice_list.jpg')} />
+          <Icon style={styles.riceIcon} name="rice" color="#F8C758" />
+          <TouchableHighlight onPress={() => {}} style={styles.button} underlayColor="transparent">
+            <Text style={styles.buttonText}>診断を開始する！</Text>
+          </TouchableHighlight>
+         <Image style={styles.riceList}source={require('../../assets/rice_list.jpg')} />
       </View>
     );
   }
@@ -62,9 +63,9 @@ const styles = StyleSheet.create({
     width: 300,
     height: 60,
     alignSelf: 'center',
-    position: 'absolute',
     bottom: 190,
     borderRadius: 24,
+    position: 'absolute',
     shadowColor:'#000',
     shadowOffset: {width:0,height:3},
     shadowOpacity: 0.3,
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     position: 'absolute',
-    bottom: 210,
+    bottom: 20,
     alignSelf: 'center',
     fontSize: 22,
     color: '#fff',
