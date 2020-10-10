@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image, TouchableHighlight } from 'react-native' 
+import { View, StyleSheet, Text, Image, TouchableHighlight, Animated } from 'react-native' 
 import CircleButton from '../elements/CircleButton';
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -13,10 +13,10 @@ class MemoCreateScreen extends React.Component{
           <Text style={styles.rowText} >お米を診断します！</Text>
         </View>
           <Icon style={styles.riceIcon} name="rice" color="#F8C758" />
-          <TouchableHighlight onPress={() => {}} style={styles.button} underlayColor="transparent">
+          <TouchableHighlight onPress={this.fadeOut} style={styles.button} underlayColor="transparent">
             <Text style={styles.buttonText}>診断を開始する！</Text>
           </TouchableHighlight>
-         <Image style={styles.riceList}source={require('../../assets/rice_list.jpg')} />
+         <Image style={styles.riceList} source={require('../../assets/rice_list.jpg')} />
       </View>
     );
   }
