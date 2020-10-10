@@ -15,23 +15,8 @@ import firebase from 'firebase';
 
 require("firebase/firestore");
 
-import ENV from './env.json'
 import MemoCreateScreen from './src/screens/MemoCreateScreen';
 
-const firebaseConfig = {
-  apiKey: ENV.FIREBASE_API_KEY,
-  authDomain: ENV.FIREBASE_AUTH_DOMAIN,
-  databaseURL: ENV.FIREBASE_DB_URL,
-  projectId: ENV.FIREBASE_PRJ_ID,
-  storageBucket:  ENV.FIREBASE_STORAGE,
-  messagingSenderId: ENV.FIREBASE_SENDER_ID,
-  appId: ENV.FIREBASE_APP_ID,
-  measurementId: ENV.FIREBASE_MEASURE_ID,
-};
-
-if(firebase.apps.length == 0){ //initializeAppが複数回呼ばれるとエラーに
-  firebase.initializeApp(firebaseConfig);
-}
 
 const App = createStackNavigator({
   Login:      { screen: LoginScreen },
@@ -56,29 +41,3 @@ const App = createStackNavigator({
  
 export default createAppContainer(App);
 
-// // export default createAppContainer(App);
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Appbar/>
-//       {/* <MemoListScreen/> */}
-//       {/* <MemoDetailScreen/> */}
-//       {/* <MemoEditScreen/> */}
-//       {/* <LoginScreen/> */}
-//       <SignupScreen/>
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fffdf6',
-//     alignItems: 'center',
-//     justifyContent: 'flex-start',
-//     paddingTop:78,
-//   },
-// });
-
-// export default App;
-// export default createAppContainer(App);
