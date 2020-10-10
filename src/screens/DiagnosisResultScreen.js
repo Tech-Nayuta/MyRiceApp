@@ -1,10 +1,15 @@
 import React from 'react'
-import { View, StyleSheet, Text, Button } from 'react-native' 
+import { View, StyleSheet, Text, TouchableHighlight } from 'react-native' 
 import CircleButton from '../elements/CircleButton';
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class DiagnosisResultScreen extends React.Component{
+
+  handlePress(){
+    this.props.navigation.navigate('Home');
+  }
+
   render(){
     return(
       <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
@@ -13,9 +18,10 @@ class DiagnosisResultScreen extends React.Component{
           <Text style={styles.rowText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米はこれです！</Text>
         </View>
-        {/* <Icon style={styles.riceIcon} name="rice" color="#F8C758" /> */}
-        <CircleButton style={styles.button} onPress={() => {}}/>
-        <Text style={styles.buttonText}>もう一度診断する！</Text>
+        <TouchableHighlight onPress={this.handlePress.bind(this)} style={styles.button} underlayColor="transparent">
+            <Text style={styles.buttonText}>もう一度診断する！</Text>
+        </TouchableHighlight>
+
       </View>
     );
   }
@@ -28,17 +34,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   textContainer: {
-    position: 'absolute',
-    top: 60,
+    top: 40,
     width: 300,
-    height: 170,
+    height: 140,
     backgroundColor: '#FFC776',
     alignSelf: 'center',
-    borderRadius: 45,
+    borderRadius: 30,
+    marginBottom: 420,
   },
   topText: {
-    marginTop: 30,
-    marginBottom: 20,
+    marginTop: 20,
+    marginBottom: 15,
     fontSize: 24,
     alignSelf: 'center',
     color: '#fff',
@@ -51,20 +57,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-  riceIcon: {
-    fontSize: 80,
-    alignSelf: 'center',
-    marginTop: 60,
-    position: 'absolute',
-    bottom: 300,
-  },
   button:{
     backgroundColor: '#98A51C',
     width: 300,
     height: 60,
     alignSelf: 'center',
-    position: 'absolute',
-    bottom: 70,
     borderRadius: 24,
     shadowColor:'#000',
     shadowOffset: {width:0,height:3},
@@ -72,20 +69,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   buttonText: {
-    position: 'absolute',
-    bottom: 90,
+    paddingTop: 20,
     alignSelf: 'center',
     fontSize: 22,
     color: '#fff',
     fontWeight: 'bold',
-  },
-  riceList: {
-    width: 350,
-    height: 100,
-    position: 'absolute',
-    bottom: 32,
-
-    alignSelf: 'center',
   },
 });
 
