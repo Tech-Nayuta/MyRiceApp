@@ -6,10 +6,9 @@ import DiagnosticScreen from './src/screens/DiagnosticScreen';
 import DiagnosisResultScreen from './src/screens/DiagnosisResultScreen';
 
 const App = createStackNavigator({
-  // Home:      { screen: HomeScreen },
-  // Dignostic: { screen: DiagnosticScreen },
-  Result:    { screen: DiagnosisResultScreen },  
   Home:      { screen: HomeScreen },
+  Dignostic: { screen: DiagnosticScreen },
+  Result:    { screen: DiagnosisResultScreen },  
 
 }, {
   defaultNavigationOptions: {
@@ -20,7 +19,7 @@ const App = createStackNavigator({
       color: '#fff',
     },
     headerStyle:{
-      backgroundColor: "#98A51C",
+      backgroundColor: "#F8C758",
     },
   }
 });
