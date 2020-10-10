@@ -23,7 +23,7 @@ class MemoCreateScreen extends React.Component{
     Animated.timing(this.RotateValueHolder, {
       toValue: 1,
       duration: 3000,
-      useNativeDriver: true, // Add this line
+      useNativeDriver: false, // Add this line
     }).start(() => this.StartImageRotateFunction());
   }
   
