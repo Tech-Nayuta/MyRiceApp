@@ -15,7 +15,7 @@ import Loading from '../elements/Loading';
 
 
 // let questions = ["10日のお昼ご飯は？","11日のお昼ご飯は？","12日のお昼ご飯は？","13日のお昼ご飯は？","14日のお昼ご飯は？"];
-let questions = ["下の３つから項目を選んでください","好きな固さはどれくらい？","粘りの強さはどれくらい？"]
+let questions = ["３つの項目から選んでください","好きな固さはどれくらい？","粘りの強さはどれくらい？"]
 
 class DiagnosticScreen extends React.Component{
 
@@ -129,10 +129,15 @@ class DiagnosticScreen extends React.Component{
               </View>
             </View>
             <View style={styles.answerContent}>
-              <CircleButton name="pencil" style={styles.submitButton1} color="white" onPress={this.handleSubmit.bind(this,1)}/>
-              <CircleButton name="pencil" style={styles.submitButton2} color="white" onPress={this.handleSubmit.bind(this,2)}/>
-              <CircleButton name="pencil" style={styles.submitButton3} color="white" onPress={this.handleSubmit.bind(this,3)}/>
-              {/* <CircleButton name="pencil" style={styles.submitButton5} color="white" onPress={() => {}}/> */}
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,1)} >
+                <Text style={styles.submitButtonText}>手軽に食べたい</Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,2)}>
+                <Text style={styles.submitButtonText}>普通に食べたい</Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,3)}>
+                <Text style={styles.submitButtonText}>作り置きしたい</Text>
+              </TouchableHighlight>
             </View>
               {/* <Image style={styles.tinyLogo} source={require()} /> */}
             <View style={styles.riceImages}>
@@ -149,16 +154,20 @@ class DiagnosticScreen extends React.Component{
               </View>
             </View>
             <View style={styles.answerContent}>
-             <CircleButton name="pencil" style={styles.submitButton1} color="white" onPress={this.handleSubmit.bind(this,1)}/>
-              <CircleButton name="pencil" style={styles.submitButton2} color="white" onPress={this.handleSubmit.bind(this,2)}/>
-              <CircleButton name="pencil" style={styles.submitButton3} color="white" onPress={this.handleSubmit.bind(this,3)}/>
-              <CircleButton name="pencil" style={styles.submitButton4} color="white" onPress={this.handleSubmit.bind(this,4)}/>
-              {/* <CircleButton name="pencil" style={styles.submitButton5} color="white" onPress={() => {}}/> */}
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,1)} >
+                <Text style={styles.submitButtonText}>硬い</Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,2)}>
+                <Text style={styles.submitButtonText}>普通</Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,3)}>
+                <Text style={styles.submitButtonText}>柔らかい</Text>
+              </TouchableHighlight>
             </View>
               {/* <Image style={styles.tinyLogo} source={require()} /> */}
             <View style={styles.riceImages}>
               <Image style={styles.rice0} source={require('../../assets/ine/0.png')}/> 
-              <Image style={styles.rice1} source={require('../../assets/ine/1.png')}/> 
+              <Image style={styles.rice1} source={require('../../assets/ine/2.png')}/> 
             </View>
           </View>
         );
@@ -171,17 +180,23 @@ class DiagnosticScreen extends React.Component{
               </View>
             </View>
             <View style={styles.answerContent}>
-              <CircleButton name="pencil" style={styles.submitButton1} color="white" onPress={this.handleSubmit.bind(this,1)}/>
-              <CircleButton name="pencil" style={styles.submitButton2} color="white" onPress={this.handleSubmit.bind(this,2)}/>
-              <CircleButton name="pencil" style={styles.submitButton3} color="white" onPress={this.handleSubmit.bind(this,3)}/>
-              <CircleButton name="pencil" style={styles.submitButton4} color="white" onPress={this.handleSubmit.bind(this,4)}/>
-              {/* <CircleButton name="pencil" style={styles.submitButton5} color="white" onPress={() => {}}/> */}
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,1)} >
+                <Text style={styles.submitButtonText}>強い</Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,2)}>
+                <Text style={styles.submitButtonText}>普通</Text>
+              </TouchableHighlight>
+              <TouchableHighlight style={styles.submitButton} onPress={this.handleSubmit.bind(this,3)}>
+                <Text style={styles.submitButtonText}>弱い</Text>
+              </TouchableHighlight>
             </View>
               {/* <Image style={styles.tinyLogo} source={require()} /> */}
             <View style={styles.riceImages}>
               <Image style={styles.rice0} source={require('../../assets/ine/0.png')}/> 
-              <Image style={styles.rice1} source={require('../../assets/ine/1.png')}/> 
               <Image style={styles.rice2} source={require('../../assets/ine/2.png')}/> 
+              <Image style={styles.rice1} source={require('../../assets/ine/3.png')}/> 
+              <Image style={styles.rice1} source={require('../../assets/ine/5.png')}/> 
+
             </View>
           </View>
         );
@@ -259,48 +274,50 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
-  answerContent:{
-    flex: 1,
+ 　submitButton:{
+    width: 300,
+    height: 60,
+    backgroundColor: '#F8C758',
+    alignSelf: 'center',
+    borderRadius: 24,
+    marginBottom: 40,
+    shadowColor:'#000',
+    shadowOffset: {width:0,height:3},
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   },
-  submitButton1:{
-    bottom: 50,
-    left: 80,
-  },
-  submitButton2:{
-    bottom:  150,
-    left: 80,
-  },
-  submitButton3:{
-    bottom: 50,
-    right: 80,
-  },
-  submitButton4:{
-    bottom:  50,
-    right: 80,
+  submitButtonText: {
+    color: '#fff',
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    paddingTop: 20,
   },
   riceImages:{
     display: 'flex',
     flexDirection: 'row',
+    paddingBottom: 60,
+    justifyContent: 'center',
   },
   rice0:{
-    marginTop: 50,
+    marginTop: 40,
     width: 100,
     height: 60,
   },
   rice1:{
-    width: 60,
+    width: 80,
     height: 110,
   },
   rice2:{
-    width: 60,
+    width: 100,
     height: 110,
   },
-  rice3:{
-    marginLeft: 5,
-    width: 60,
-    height: 110,
-    marginBottom: 10,
-  },
+  // rice3:{
+  //   marginLeft: 5,
+  //   width: 60,
+  //   height: 110,
+  //   marginBottom: 10,
+  // },
   rice4:{
     marginLeft: 10,
     width: 60,
