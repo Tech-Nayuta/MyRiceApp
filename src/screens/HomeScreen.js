@@ -3,24 +3,55 @@ import { View, StyleSheet, Text, Image, TouchableHighlight, Animated } from 'rea
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+const AnimatedIcon = Animated.createAnimatedComponent(Icon);
+
 class MemoCreateScreen extends React.Component{
 
   handlePress(){
     this.props.navigation.navigate('Dignostic');
   }
 
+  constructor() {
+    super();
+    this.RotateValueHolder = new Animated.Value(0);
+  }
+  componentDidMount() {
+    this.StartImageRotateFunction();
+  }
+  StartImageRotateFunction() {
+    this.RotateValueHolder.setValue(0);
+    Animated.timing(this.RotateValueHolder, {
+      toValue: 1,
+      duration: 3000,
+      useNativeDriver: true, // Add this line
+    }).start(() => this.StartImageRotateFunction());
+  }
+  
   render(){
+    const RotateData = this.RotateValueHolder.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg'],
+    });
+
     return(
-      <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
+    <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
         <View style={styles.textContainer}>
           <Text style={styles.topText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米を診断します！</Text>
         </View>
-          <Icon style={styles.riceIcon} name="rice" color="#FFC776" />
+          <Animated.Image
+            style={{width: 170,
+            height: 170,
+            alignSelf: 'center',
+            position: 'absolute',
+            bottom: 250,
+            transform: [{ rotate: RotateData }]}}
+            source={require('../../assets/rice_icon.png')}
+            /> 
           <TouchableHighlight onPress={this.handlePress.bind(this)} style={styles.button} underlayColor="transparent">
             <Text style={styles.buttonText}>診断を開始する！</Text>
           </TouchableHighlight>
-         <Image style={styles.riceList} source={require('../../assets/rice_list.jpg')} />
+         <Animated.Image style={styles.riceList} source={require('../../assets/rice_list.jpg')} />
       </View>
     );
   }
@@ -34,15 +65,15 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: 65,
+    top: 50,
     width: 300,
-    height: 170,
+    height: 150,
     backgroundColor: '#F8C758',
     alignSelf: 'center',
     borderRadius: 45,
   },
   topText: {
-    marginTop: 52,
+    marginTop: 50,
     fontSize: 24,
     alignSelf: 'center',
     color: '#fff',
@@ -56,18 +87,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   riceIcon: {
-    fontSize: 80,
+    width: 180,
+    height: 170,
     alignSelf: 'center',
-    marginTop: 60,
     position: 'absolute',
-    bottom: 300,
+    bottom: 250,
   },
   button:{
     backgroundColor: '#98A51C',
     width: 300,
     height: 60,
     alignSelf: 'center',
-    bottom: 180,
+    bottom: 150,
     borderRadius: 50,
     position: 'absolute',
     shadowColor:'#000',
