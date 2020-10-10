@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableHighlight} from 'react-native'
 
 import CircleButton from '../elements/CircleButton';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Loading from '../elements/Loading';
 
 // const dateString = (date) => {
 //   //Timestamp型からDate型に変換（.toDate）し、文字列に
@@ -45,6 +46,7 @@ class DiagnosticScreen extends React.Component{
   state = {
     questionId: 0,
     selections: [],
+    isLoading: false,
     isPushed: false,
   }
 
@@ -64,6 +66,7 @@ class DiagnosticScreen extends React.Component{
 
     if(nextQuestionId > questions.length - 1){
       console.log(selections);
+      this.setState({isLoading: true});
       //rails リクエスト処理を行う
 
       // (((rails--------------------------------------------------------------------------------------
@@ -72,11 +75,7 @@ class DiagnosticScreen extends React.Component{
           return response.json();
         })
         .then((jsonData) => {
-          rices = [];
-          // jsonData.forEach((rice)=>{
-          //   console.log(rice);
-          // })
-
+          this.setState({isLoading: false});
           this.props.navigation.navigate('Result',{results: jsonData});
           // this.setState({ loading: false })
           // if (jsonData['api_token']) {
@@ -86,7 +85,10 @@ class DiagnosticScreen extends React.Component{
           //   this.setState({ failed: true })
           // }
         })
-        // .catch((error) => console.error(error));
+        .catch((error) => {
+          this.setState({isLoading: false});
+          console.error(error)
+        });
       
       // this.props.navigation.navigate('ok',{});
     }
@@ -120,6 +122,7 @@ class DiagnosticScreen extends React.Component{
       case 0:
         return(
           <View style={styles.container}>
+            <Loading text="診断中..." isLoading={this.state.isLoading} style={styles.loading}/>
             <View style={styles.question}>
               <View style={styles.questionContents}>
                   <Text style={styles.question}>{questions[this.state.questionId]}</Text>
@@ -260,19 +263,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   submitButton1:{
-    top: 50,
+    bottom: 50,
     left: 80,
   },
   submitButton2:{
-    top:  150,
+    bottom:  150,
     left: 80,
   },
   submitButton3:{
-    top: 50,
+    bottom: 50,
     right: 80,
   },
   submitButton4:{
-    top:  150,
+    bottom:  50,
     right: 80,
   },
   riceImages:{

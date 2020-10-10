@@ -35,17 +35,17 @@ class MemoCreateScreen extends React.Component{
     });
 
     return(
-    <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
+    <View style={styles.container} behavior="height" keyboardVerticalOffset="40" >
         <View style={styles.textContainer}>
           <Text style={styles.topText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米を診断します！</Text>
         </View>
           <Animated.Image
-            style={{width: 170,
-            height: 170,
+            style={{width: 130,
+            height: 130,
             alignSelf: 'center',
             position: 'absolute',
-            bottom: 250,
+            bottom: 195,
             transform: [{ rotate: RotateData }]}}
             source={require('../../assets/rice_icon.png')}
             /> 
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: 50,
+    top: 20,
     width: 300,
     height: 150,
     backgroundColor: '#F8C758',
@@ -92,14 +92,14 @@ const styles = StyleSheet.create({
     height: 170,
     alignSelf: 'center',
     position: 'absolute',
-    bottom: 250,
+    bottom: 180,
   },
   button:{
     backgroundColor: '#98A51C',
     width: 300,
     height: 60,
     alignSelf: 'center',
-    bottom: 150,
+    bottom: 100,
     borderRadius: 50,
     position: 'absolute',
     shadowColor:'#000',
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     width: 350,
     height: 100,
     position: 'absolute',
-    bottom: 32,
+    bottom: 0,
     alignSelf: 'center',
   },
 });
