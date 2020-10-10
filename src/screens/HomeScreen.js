@@ -11,6 +11,7 @@ class MemoCreateScreen extends React.Component{
     this.props.navigation.navigate('Dignostic');
   }
 
+
   constructor() {
     super();
     this.RotateValueHolder = new Animated.Value(0);

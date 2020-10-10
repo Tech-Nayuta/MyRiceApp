@@ -6,8 +6,8 @@ import DiagnosticScreen from './src/screens/DiagnosticScreen';
 import DiagnosisResultScreen from './src/screens/DiagnosisResultScreen';
 
 const App = createStackNavigator({
-  // Home:      { screen: HomeScreen },
-  // Dignostic: { screen: DiagnosticScreen },
+  Home:      { screen: HomeScreen },
+  Dignostic: { screen: DiagnosticScreen },
   Result:    { screen: DiagnosisResultScreen },  
 
 }, {
