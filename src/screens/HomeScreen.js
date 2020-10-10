@@ -16,7 +16,7 @@ class MemoCreateScreen extends React.Component{
           <Text style={styles.topText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米を診断します！</Text>
         </View>
-          <Icon style={styles.riceIcon} name="rice" color="#F8C758" />
+          <Icon style={styles.riceIcon} name="rice" color="#FFC776" />
           <TouchableHighlight onPress={this.handlePress.bind(this)} style={styles.button} underlayColor="transparent">
             <Text style={styles.buttonText}>診断を開始する！</Text>
           </TouchableHighlight>
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: 80,
+    top: 65,
     width: 300,
     height: 170,
-    backgroundColor: '#FFC776',
+    backgroundColor: '#F8C758',
     alignSelf: 'center',
     borderRadius: 45,
   },
@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     width: 300,
     height: 60,
     alignSelf: 'center',
-    bottom: 190,
-    borderRadius: 24,
+    bottom: 180,
+    borderRadius: 50,
     position: 'absolute',
     shadowColor:'#000',
     shadowOffset: {width:0,height:3},
@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
     height: 100,
     position: 'absolute',
     bottom: 32,
-
     alignSelf: 'center',
   },
 });
