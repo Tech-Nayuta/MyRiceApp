@@ -1,10 +1,15 @@
 import React from 'react'
-import { View, StyleSheet, Text, Button } from 'react-native' 
+import { View, StyleSheet, Text, TouchableHighlight } from 'react-native' 
 import CircleButton from '../elements/CircleButton';
 // お米のiconを導入するための記述
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class DiagnosisResultScreen extends React.Component{
+
+  handlePress(){
+    this.props.navigation.navigate('Home');
+  }
+
   render(){
     return(
       <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
@@ -13,9 +18,10 @@ class DiagnosisResultScreen extends React.Component{
           <Text style={styles.rowText} >あなたにぴったりな</Text>
           <Text style={styles.rowText} >お米はこれです！</Text>
         </View>
-        {/* <Icon style={styles.riceIcon} name="rice" color="#F8C758" /> */}
-        <CircleButton style={styles.button} onPress={() => {}}/>
-        <Text style={styles.buttonText}>もう一度診断する！</Text>
+        <TouchableHighlight onPress={this.handlePress.bind(this)} style={styles.button} underlayColor="transparent">
+            <Text style={styles.buttonText}>もう一度診断する！</Text>
+        </TouchableHighlight>
+
       </View>
     );
   }
@@ -73,19 +79,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     position: 'absolute',
-    bottom: 90,
+    bottom: 20,
     alignSelf: 'center',
     fontSize: 22,
     color: '#fff',
     fontWeight: 'bold',
-  },
-  riceList: {
-    width: 350,
-    height: 100,
-    position: 'absolute',
-    bottom: 32,
-
-    alignSelf: 'center',
   },
 });
 
