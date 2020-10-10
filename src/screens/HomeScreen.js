@@ -8,9 +8,11 @@ class MemoCreateScreen extends React.Component{
   render(){
     return(
       <View style={styles.container} behavior="height" keyboardVerticalOffset="50" >
-        <Text style={styles.topText} >あなたにぴったりな</Text>
-        <Text style={styles.rowText} >お米を診断します！</Text>
-        <Icon style={styles.riceIcon}name="rice" color="#FFC776" />
+        <View style={styles.textContainer}>
+          <Text style={styles.topText} >あなたにぴったりな</Text>
+          <Text style={styles.rowText} >お米を診断します！</Text>
+        </View>
+        <Icon style={styles.riceIcon} name="rice" color="#F8C758" />
         <CircleButton style={styles.button}　onPress={() => {}}/>
         <Image style={styles.riceList}source={require('../../assets/rice_list.jpg')} />
       </View>
@@ -24,23 +26,38 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#fff',
   },
+  textContainer: {
+    position: 'absolute',
+    top: 80,
+    width: 300,
+    height: 170,
+    backgroundColor: '#FFC776',
+    alignSelf: 'center',
+    borderRadius: 45,
+  },
   topText: {
-    marginTop: 100,
+    marginTop: 52,
     fontSize: 24,
     alignSelf: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
   },
   rowText: {
     marginTop: 10,
     fontSize: 24,
     alignSelf: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
   },
   riceIcon: {
     fontSize: 80,
     alignSelf: 'center',
     marginTop: 60,
+    position: 'absolute',
+    bottom: 300,
   },
   button:{
-    backgroundColor: '#ddd',
+    backgroundColor: '#98A51C',
     width: 300,
     height: 60,
     alignSelf: 'center',

@@ -28,11 +28,11 @@ class CircleButton extends React.Component{
 
   render(){
     const {style, color, name, onPress} = this.props; //引数としてスタイルを取り出せる
-    let bgColor = '#e31676';
+    let bgColor = ' #FFC776';
     let textColor = '#fff';
 
     if(color === 'white'){
-      bgColor = '#fff';
+      bgColor = ' #FFC776';
       textColor = '#e31676';
     }
 
