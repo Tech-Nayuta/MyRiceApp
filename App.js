@@ -28,6 +28,7 @@ const App = createStackNavigator({
   // Home:       { screen: MemoListScreen },
   // MemoDetail: { screen: MemoDetailScreen },
   // MemoEdit:   { screen: MemoEditScreen },
+  
 }, {
   defaultNavigationOptions: {
     headerBackTitle: "　",
