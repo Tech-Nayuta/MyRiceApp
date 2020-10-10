@@ -1,11 +1,11 @@
 import React from 'react'
 import { StyleSheet, View, Text} from 'react-native' 
 
-class SampleComponent extends React.Component{
+class OkScreen extends React.Component{
   render(){
     return(
       <View>
-        <Text></Text>
+        <Text>ok</Text>
       </View>
     );
   }
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SampleComponent;
+export default OkScreen;

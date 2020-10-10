@@ -9,7 +9,7 @@ import { StyleSheet, View } from 'react-native';
 // import LoginScreen from './src/screens/LoginScreen';
 // import SignupScreen from './src/screens/SignupScreen';
 import DiagnosticScreen from './src/screens/DiagnosticScreen'; 
-import DiagnosticScreen2 from './src/screens/DiagnosticScreen2'; 
+import OkScreen from './src/screens/OkScreen';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 // import firebase from 'firebase';
@@ -36,7 +36,7 @@ import MemoCreateScreen from './src/screens/MemoCreateScreen';
 
 const App = createStackNavigator({
   Diagnostic:      { screen: DiagnosticScreen },
-  Diagnostic2:      { screen: DiagnosticScreen2 },
+  ok:              { screen: OkScreen},
 }, {
   defaultNavigationOptions: {
     headerBackTitle: "　",
