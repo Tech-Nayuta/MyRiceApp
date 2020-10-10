@@ -108,7 +108,6 @@ class DiagnosticScreen extends React.Component{
               <CircleButton name="pencil" style={styles.submitButton1} color="white" onPress={this.handleSubmit.bind(this,1)}/>
               <CircleButton name="pencil" style={styles.submitButton2} color="white" onPress={this.handleSubmit.bind(this,2)}/>
               <CircleButton name="pencil" style={styles.submitButton3} color="white" onPress={this.handleSubmit.bind(this,3)}/>
-              <CircleButton name="pencil" style={styles.submitButton4} color="white" onPress={this.handleSubmit.bind(this,4)}/>
               {/* <CircleButton name="pencil" style={styles.submitButton5} color="white" onPress={() => {}}/> */}
             </View>
               {/* <Image style={styles.tinyLogo} source={require()} /> */}
