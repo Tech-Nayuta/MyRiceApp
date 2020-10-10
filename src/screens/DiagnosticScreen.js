@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
   riceImages:{
     display: 'flex',
     flexDirection: 'row',
-    paddingBottom: 60,
+    // paddingBottom: 60,
     justifyContent: 'center',
   },
   rice0:{
