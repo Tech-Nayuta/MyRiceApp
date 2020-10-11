@@ -72,14 +72,14 @@ class DiagnosticScreen extends React.Component{
 
       // // (((rails--------------------------------------------------------------------------------------
       // https://5f7ec8d7194e46c4be7084f6ddaccdbb.vfs.cloud9.ap-northeast-1.amazonaws.com/
-      return fetch(`https://whispering-coast-00606.herokuapp.com/rices?selections=${this.state.selections}`)
+      // return fetch(`https://whispering-coast-00606.herokuapp.com/rices?selections=${this.state.selections}`)
 
       
 
-        // https://whispering-coast-00606.herokuapp.com/rices
-        // .then((response) => {
-        //   return response.json();
-        // })
+        return fetch('https://whispering-coast-00606.herokuapp.com/rices')
+        .then((response) => {
+          return response.json();
+        })
            
         // return fetch('https://whispering-coast-00606.herokuapp.com/rices',{
         //   method: 'POST',
@@ -289,14 +289,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   questionContents:{
-    height: 200,
+    height: 150,
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
   },
   question:{
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 'bold',
+    color: '#696969',
   },  
   answerContent:{
     flex: 1,
@@ -324,7 +325,7 @@ const styles = StyleSheet.create({
   riceImages:{
     display: 'flex',
     flexDirection: 'row',
-    paddingBottom: 60,
+    paddingBottom: 35,
     justifyContent: 'center',
   },
   rice0:{
@@ -337,8 +338,9 @@ const styles = StyleSheet.create({
     height: 110,
   },
   rice2:{
+    marginTop: 10,
     width: 100,
-    height: 110,
+    height: 100,
   },
   // rice3:{
   //   marginLeft: 5,
@@ -352,8 +354,8 @@ const styles = StyleSheet.create({
     height: 110,
   },
   rice5:{
-    width: 60,
-    height: 110,
+    width: 80,
+    height: 150,
   },
 
 

@@ -13,6 +13,8 @@ const App = createStackNavigator({
 }, {
   defaultNavigationOptions: {
     headerBackTitle: "",
+    //最後に実装する
+    // headerLeft: () => null,
     headerTitle: 'My Rice',
     headerTintColor: '#fff',
     headerTitleStyle:{
