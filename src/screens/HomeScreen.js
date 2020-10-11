@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     width: 350,
     height: 100,
     position: 'absolute',
-    bottom: 0,
+    bottom: 5,
     alignSelf: 'center',
   },
 });
