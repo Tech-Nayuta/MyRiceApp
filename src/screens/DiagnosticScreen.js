@@ -67,13 +67,41 @@ class DiagnosticScreen extends React.Component{
     if(nextQuestionId > questions.length - 1){
       console.log(selections);
       this.setState({isLoading: true});
+
       //rails リクエスト処理を行う
 
-      // (((rails--------------------------------------------------------------------------------------
-      return fetch('https://whispering-coast-00606.herokuapp.com/')
-        .then((response) => {
-          return response.json();
-        })
+      // // (((rails--------------------------------------------------------------------------------------
+      // https://5f7ec8d7194e46c4be7084f6ddaccdbb.vfs.cloud9.ap-northeast-1.amazonaws.com/
+      return fetch(`https://whispering-coast-00606.herokuapp.com/rices?selections=${this.state.selections}`)
+
+      
+
+        // https://whispering-coast-00606.herokuapp.com/rices
+        // .then((response) => {
+        //   return response.json();
+        // })
+           
+        // return fetch('https://whispering-coast-00606.herokuapp.com/rices',{
+        //   method: 'POST',
+        //   headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ selections: this.state.selections})
+        // })
+
+        
+        // fetch('https://whispering-coast-00606.herokuapp.com/rices', {
+        //   method: 'POST',
+        //   headers: {
+        //     Accept: 'application/json',
+        //     'Content-Type': 'application/json'
+        //   },
+        //   body: JSON.stringify({
+        //     selections: selections,
+        //   })
+        // })
+  
+          .then((response) => {
+             return response.json();
+          })
         .then((jsonData) => {
           this.setState({isLoading: false});
           this.props.navigation.navigate('Result',{results: jsonData});
@@ -296,7 +324,7 @@ const styles = StyleSheet.create({
   riceImages:{
     display: 'flex',
     flexDirection: 'row',
-    // paddingBottom: 60,
+    paddingBottom: 60,
     justifyContent: 'center',
   },
   rice0:{

@@ -17,6 +17,7 @@ class DiagnosisResultScreen extends React.Component{
 
   render(){
     const {params} = this.props.navigation.state;
+    console.log(params.results);
     return(
       <ScrollView style={styles.container} behavior="height" keyboardVerticalOffset="50" >
         <View style={styles.textContainer}>
@@ -26,7 +27,7 @@ class DiagnosisResultScreen extends React.Component{
         </View>
       
         <ResultList resultList={params.results}/>
-  
+
         <TouchableHighlight onPress={this.handlePress.bind(this)} style={styles.button} underlayColor="transparent">
             <Text style={styles.buttonText}>もう一度診断する！</Text>
         </TouchableHighlight>
