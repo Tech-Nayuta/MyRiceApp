@@ -1,19 +1,13 @@
 import React from 'react'
-
 import { View, StyleSheet, Text, ScrollView, TouchableHighlight } from 'react-native' 
-import CircleButton from '../elements/CircleButton';
-// お米のiconを導入するための記述
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import ResultList from '../components/ResultList';
 
 
 class DiagnosisResultScreen extends React.Component{
 
-
   handlePress(){
     this.props.navigation.navigate('Home');
   }
-
 
   render(){
     const {params} = this.props.navigation.state;
