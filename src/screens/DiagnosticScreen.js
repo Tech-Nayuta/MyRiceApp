@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
   riceImages:{
     display: 'flex',
     flexDirection: 'row',
-    paddingBottom: 60,
+    paddingBottom: 35,
     justifyContent: 'center',
   },
   rice0:{
@@ -354,8 +354,8 @@ const styles = StyleSheet.create({
     height: 110,
   },
   rice5:{
-    width: 60,
-    height: 140,
+    width: 80,
+    height: 150,
   },
 
 
