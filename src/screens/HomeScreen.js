@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: 20,
+    top: 45,
     width: 300,
     height: 150,
     backgroundColor: '#F8C758',
